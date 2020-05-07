@@ -68,8 +68,16 @@ function draw(){
     	dx = -dx;
 	}
 
-	if(addY > canvas.height - ballRadius || addY < ballRadius) {
+	if(addY < ballRadius) {
     	dy = -dy;
+	} else if(addY > canvas.height - ballRadius) {
+		if(x > paddleX && x < paddleX + paddleWidth){
+			dy = -dy;
+		} else {
+			alert("GAME OVER");
+			document.location.reload();
+			clearInterval(interval);
+		}
 	}
 
 	//Paddle Collision detection
@@ -86,4 +94,4 @@ function draw(){
 	y += dy;
 }
 
-setInterval(draw, 10); //call draw every 10 milliseconds
+var interval = setInterval(draw, 10); //call draw every 10 milliseconds
