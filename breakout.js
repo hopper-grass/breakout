@@ -72,7 +72,7 @@ function draw(){
     	dy = -dy;
 	} else if(addY > canvas.height - ballRadius) {
 		if(x > paddleX && x < paddleX + paddleWidth){
-			dy = -dy;
+			dy = -dy - 1;
 		} else {
 			alert("GAME OVER");
 			document.location.reload();
