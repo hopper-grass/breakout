@@ -24,13 +24,19 @@
 	var dx = 2;
 	var dy = -2;
 
-	function draw(){
-		//Circle
+	function drawBall(){
 		ctx.beginPath();
 		ctx.arc(x, y, 10, 0, Math.PI*2);
 		ctx.fillStyle = "#D8BFD8";
 		ctx.fill();
 		ctx.closePath();
+	}
+
+	function draw(){
+		//Clear out the frame
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+		drawBall();
 
 		//Update locations
 		x += dx;
